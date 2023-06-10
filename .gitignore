@@ -1,0 +1,8 @@
+# folders
+node_modules/
+coverage/
+
+# files
+*.txt
+.env
+yarn.lock
