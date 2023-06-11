@@ -3,7 +3,7 @@ describe("Cenário 4 - Alteração de produtos (PUT /api/v1/products/{id})", () 
 
     test("4.2 - Retornar erro de formato para falta de parâmetros obrigatórios", () => {});
 
-    test("4.3 - Retornar erro de formato para parâmetro 'id' do tipo string não numérica", () => {});
+    test("4.3 - Retornar erro para parâmetro 'id' do tipo string não numérica", () => {});
     
     test("4.4 - Retornar erro para parâmetro 'id' não cadastrado", () => {});
     
