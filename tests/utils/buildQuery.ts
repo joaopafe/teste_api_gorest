@@ -1,9 +1,14 @@
-export const buildQuery = (obj: Record<string, any>): string =>
-  Object.keys(obj)
-    .filter((key) => obj[key] !== "" && obj[key] !== undefined)
-    .map((key) =>
-      Array.isArray(obj[key])
-        ? obj[key].map((e: any) => `${key}=${e}`).join("&")
-        : `${encodeURIComponent(key)}=${encodeURIComponent(obj[key] as string)}`
-    )
-    .join("&");
+export function buildQuery (parametros: object){
+  const chaves = Object.keys(parametros);
+  const propriedades = [];
+
+  for(const chave of chaves){
+    if(chave != "" && chave != null && chave != undefined){
+      const valor = parametros[chave as keyof typeof parametros];
+      const propriedade = `${chave}=${valor}`;
+      propriedades.push(propriedade);
+    }
+  }
+  const properties = propriedades.join("&")
+  return encodeURI(properties);
+}
