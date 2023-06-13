@@ -1,4 +1,4 @@
-# Platzi Fake Store Quality Assurance - API de testes
+# [EM CONSTRUÇÃO] Platzi Fake Store Quality Assurance - API de testes
 
 ## Instalação
 

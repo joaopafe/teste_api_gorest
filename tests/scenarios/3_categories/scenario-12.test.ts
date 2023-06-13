@@ -1,5 +1,5 @@
 describe("Cenário 12 - Criação de categorias (POST /api/v1/categories)", () => {
-    test("12.1 - Cadastrar categoria através de requisição válida");
+    test("12.1 - Cadastrar categoria através de requisição válida", () => {});
     
     test("12.2 - Retornar erro de formato para falta de parâmetros obrigatórios", () => {});
     

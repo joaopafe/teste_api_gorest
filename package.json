@@ -1,22 +1,11 @@
 {
-  "name": "teste_fake_storeapi",
+  "name": "fake_store_qa",
   "version": "1.0.0",
-  "description": "Para instalar as dependências do Node.js, abra o terminal ou CMD na raiz do projeto e execute o\r seguinte comando:",
+  "description": "fake store testing",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --verbose"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/joaopafe/teste_fake_storeAPI.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/joaopafe/teste_fake_storeAPI/issues"
-  },
-  "homepage": "https://github.com/joaopafe/teste_fake_storeAPI#readme",
   "dependencies": {
     "@jest/globals": "^29.5.0",
     "@types/jest": "^29.5.1",
@@ -29,5 +18,5 @@
     "typescript": "^5.0.4",
     "ts-node": "^10.9.1"
   },
-  "devDependencies": {} 
+  "devDependencies": {}
 }
