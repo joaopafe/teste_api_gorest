@@ -1,6 +1,11 @@
-import { basicConfiguration, getProducts } from "./fakeStore";
+import {
+    basicConfiguration,
+    getProductsValid,
+    getProductsInvalid
+} from "./fakeStore";
 
 export const config = {
     basicConfiguration,
-    getProducts,
+    getProductsValid,
+    getProductsInvalid
 }
