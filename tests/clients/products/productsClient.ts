@@ -1,6 +1,11 @@
 import fetch from "node-fetch";
 import { buildQuery } from "../../utils";
-import { IListProductsInvalid, IListProductsValid } from "./interfaces";
+import {
+    IListProductsInvalid,
+    IListProductsValid,
+    ICreateProductValid,
+    IDeleteProductValid,
+} from "./interfaces";
 import { config } from "../../config/index";
 
 const baseURL = config.basicConfiguration.baseURL;
@@ -28,5 +33,34 @@ export class ProductsClient {
         });
 
         return fetch(`${this.baseUrl}/api/v1/products?${query}`);
+    }
+
+    public async createProduct(params: ICreateProductValid){
+        const body = JSON.stringify({
+            title: params.title,
+            price: params.price,
+            description: params.description,
+            categoryId: params.categoryId,
+            images: params.images,
+        });
+
+        return fetch(`${this.baseUrl}/api/v1/products`, {
+            method: "POST",
+            body,
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
+    }
+
+    public async deleteProduct(params: IDeleteProductValid){
+        const id = params.id;
+
+        return fetch(`${this.baseUrl}/api/v1/products/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+            }
+        });
     }
 }
