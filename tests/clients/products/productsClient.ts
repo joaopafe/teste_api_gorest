@@ -5,6 +5,8 @@ import {
   IListProductsValid,
   ICreateProductValid,
   IDeleteProductValid,
+  IListProductsByIdValid,
+  IListProductsByIdInvalid,
 } from "./interfaces";
 import { config } from "../../config/index";
 
@@ -63,4 +65,16 @@ export class ProductsClient {
       },
     });
   }
+
+  public async listProductsByIdValid(params: IListProductsByIdValid) {
+    const id = params.id;
+
+    return fetch(`${this.baseUrl}/api/v1/products/${id}`)
+  };
+
+  public async listProductsByIdInvalid(params: IListProductsByIdInvalid) {
+    const id = params.id;
+
+    return fetch(`${this.baseUrl}/api/v1/products/${id}`)
+  };
 }

@@ -10,7 +10,7 @@ const categorySchema = yup.object({
     updatedAt: yup.date().required(),
 });
 
-const productSchema = yup.object({
+export const productSchema = yup.object({
     id: yup.number().positive().required(),
     title: yup.string().required(),
     price: yup.number().positive().required(),

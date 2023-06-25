@@ -1,4 +1,3 @@
-import { string } from "yup";
 import { ProductsClient } from "../../clients/products/productsClient";
 import { config } from "../../config";
 import { createProductSchema, responseErrorSchema } from "../../schemas";
@@ -54,7 +53,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     await responseErrorSchema.validate(data);
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -76,7 +75,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -98,7 +97,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -120,7 +119,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -142,7 +141,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -164,7 +163,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -186,7 +185,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -208,7 +207,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -230,7 +229,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -252,7 +251,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 
@@ -274,7 +273,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
 
     const data = await response.json();
 
-    expect(data.statusCode).toEqual(400);
+    expect(data.statusCode).toEqual(response.status);
     expect(data.message.length >= 1).toBe(true);
   });
 

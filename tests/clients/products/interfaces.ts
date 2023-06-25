@@ -19,3 +19,11 @@ export interface ICreateProductValid {
 export interface IDeleteProductValid {
   id: number;
 }
+
+export interface IListProductsByIdValid {
+  id: number;
+}
+
+export interface IListProductsByIdInvalid {
+  id: any;
+}
