@@ -27,3 +27,25 @@ export interface IListProductsByIdValid {
 export interface IListProductsByIdInvalid {
   id: any;
 }
+
+export interface IUpdateProductValid {
+  id: number;
+  title: string;
+  price: number;
+  description: string;
+  categoryId: number;
+  images: string[];
+}
+
+export interface IUpdateProductWithoutParams {
+  id: any;
+}
+
+export interface IUpdateProductInvalid {
+  id: any;
+  title: any;
+  price: any;
+  description: any;
+  categoryId: any;
+  images: any;
+}

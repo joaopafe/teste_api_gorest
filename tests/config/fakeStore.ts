@@ -19,3 +19,11 @@ export const postProductsValid = {
     categoryId: 4,
     images: ["https://picsum.photos/640/640?r=5315"],
 }
+
+export const putProductsValid = {
+    title: "Oakley Flak",
+    price: 350,
+    description: "A good sneaker for casual dates and parties",
+    categoryId: 4,
+    images: ["https://picsum.photos/640/640?r=5315"],
+}

@@ -7,6 +7,9 @@ import {
   IDeleteProductValid,
   IListProductsByIdValid,
   IListProductsByIdInvalid,
+  IUpdateProductValid,
+  IUpdateProductWithoutParams,
+  IUpdateProductInvalid,
 } from "./interfaces";
 import { config } from "../../config/index";
 
@@ -70,11 +73,65 @@ export class ProductsClient {
     const id = params.id;
 
     return fetch(`${this.baseUrl}/api/v1/products/${id}`)
-  };
+  }
 
   public async listProductsByIdInvalid(params: IListProductsByIdInvalid) {
     const id = params.id;
 
     return fetch(`${this.baseUrl}/api/v1/products/${id}`)
-  };
+  }
+
+  public async updateProductValid(params: IUpdateProductValid) {
+    const id = params.id;
+
+    const body = JSON.stringify({
+      title: params.title,
+      price: params.price,
+      description: params.description,
+      categoryId: params.categoryId,
+      images: params.images,
+    });
+
+    return fetch(`${this.baseUrl}/api/v1/products/${id}`, {
+      method: "PUT",
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  public async updateProductWithoutParams(params: IUpdateProductWithoutParams) {
+    const id = params.id;
+
+    const body = JSON.stringify({});
+
+    return fetch(`${this.baseUrl}/api/v1/products/${id}`, {
+      method: "PUT",
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+  }
+
+  public async updateProductInvalid(params: IUpdateProductInvalid) {
+    const id = params.id;
+
+    const body = JSON.stringify({
+      title: params.title,
+      price: params.price,
+      description: params.description,
+      categoryId: params.categoryId,
+      images: params.images,
+    });
+
+    return fetch(`${this.baseUrl}/api/v1/products/${id}`, {
+      method: "PUT",
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      }
+    });
+  }
 }
