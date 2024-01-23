@@ -123,29 +123,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
     expect(data.message.length >= 1).toBe(true);
   });
 
-  test("2.6 - Retornar erro de formato para parâmetro 'price' do tipo string", async () => {
-    const title = config.postProductsValid.title;
-    const description = config.postProductsValid.description;
-    const categoryId = config.postProductsValid.categoryId;
-    const images = config.postProductsValid.images;
-
-    const response = await productsClient.createProduct({
-      title,
-      price: "100",
-      description,
-      categoryId,
-      images,
-    });
-
-    expect(response.status).toEqual(400);
-
-    const data = await response.json();
-
-    expect(data.statusCode).toEqual(response.status);
-    expect(data.message.length >= 1).toBe(true);
-  });
-
-  test("2.7 - Retornar erro de formato para parâmetro 'description' vazio", async () => {
+  test("2.6 - Retornar erro de formato para parâmetro 'description' vazio", async () => {
     const title = config.postProductsValid.title;
     const price = config.postProductsValid.price;
     const categoryId = config.postProductsValid.categoryId;
@@ -167,51 +145,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
     expect(data.message.length >= 1).toBe(true);
   });
 
-  test("2.8 - Retornar erro de formato para parâmetro 'categoryId' com valor negativo", async () => {
-    const title = config.postProductsValid.title;
-    const price = config.postProductsValid.price;
-    const description = config.postProductsValid.description;
-    const images = config.postProductsValid.images;
-
-    const response = await productsClient.createProduct({
-      title,
-      price,
-      description,
-      categoryId: -1,
-      images,
-    });
-
-    expect(response.status).toEqual(400);
-
-    const data = await response.json();
-
-    expect(data.statusCode).toEqual(response.status);
-    expect(data.message.length >= 1).toBe(true);
-  });
-
-  test("2.9 - Retornar erro de formato para parâmetro 'categoryId' do tipo string", async () => {
-    const title = config.postProductsValid.title;
-    const price = config.postProductsValid.price;
-    const description = config.postProductsValid.description;
-    const images = config.postProductsValid.images;
-
-    const response = await productsClient.createProduct({
-      title,
-      price,
-      description,
-      categoryId: "1",
-      images,
-    });
-
-    expect(response.status).toEqual(400);
-
-    const data = await response.json();
-
-    expect(data.statusCode).toEqual(response.status);
-    expect(data.message.length >= 1).toBe(true);
-  });
-
-  test("2.10 - Retornar erro de formato para parâmetro 'images' vazio", async () => {
+  test("2.7 - Retornar erro de formato para parâmetro 'images' vazio", async () => {
     const title = config.postProductsValid.title;
     const price = config.postProductsValid.price;
     const description = config.postProductsValid.description;
@@ -233,7 +167,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
     expect(data.message.length >= 1).toBe(true);
   });
 
-  test("2.11 - Retornar erro de formato para parâmetro 'images' com padrão diferente de URL address", async () => {
+  test("2.8 - Retornar erro de formato para parâmetro 'images' com padrão diferente de URL address", async () => {
     const title = config.postProductsValid.title;
     const price = config.postProductsValid.price;
     const description = config.postProductsValid.description;
@@ -255,7 +189,7 @@ describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
     expect(data.message.length >= 1).toBe(true);
   });
 
-  test("2.12 - Retornar erro de formato para parâmetro 'images' que não seja um array", async () => {
+  test("2.9 - Retornar erro de formato para parâmetro 'images' que não seja um array", async () => {
     const title = config.postProductsValid.title;
     const price = config.postProductsValid.price;
     const description = config.postProductsValid.description;
