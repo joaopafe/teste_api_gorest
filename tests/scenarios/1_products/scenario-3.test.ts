@@ -3,69 +3,69 @@ import { config } from "../../config";
 import { productSchema, responseErrorSchema } from "../../schemas";
 
 describe("Cenário 3 - Obtenção de produtos por ID (GET /api/v1/products/{id})", () => {
-    const productsClient = new ProductsClient();
+  const productsClient = new ProductsClient();
 
-    let idFetched = 0;
-    let idNonExistent = 0;
-    const limitMax = 100000;
-    
-    beforeAll(async () => {
-        const offset = config.getProductsValid.offset;
+  let idFetched = 0;
+  let idNonExistent = 0;
+  const limitMax = 100000;
 
-        const response = await productsClient.listProducts({
-            limit: limitMax,
-            offset
-        });
+  beforeAll(async () => {
+    const offset = config.getProductsValid.offset;
 
-        expect(response.status).toEqual(200);
-
-        const data = await response.json();
-
-        idFetched = data[0].id;
-        idNonExistent = data[data.length - 1].id + 1
+    const response = await productsClient.listProducts({
+      limit: limitMax,
+      offset,
     });
 
-    test("3.1 - Listar produto por ID através de requisição válida", async () => {
-        const response = await productsClient.listProductsByIdValid({
-            id: idFetched,
-        });
+    expect(response.status).toEqual(200);
 
-        expect(response.status).toEqual(200);
+    const data = await response.json();
 
-        const data = await response.json();
+    idFetched = data[0].id;
+    idNonExistent = data[data.length - 1].id + 1;
+  });
 
-        await productSchema.validate(data);
-
-        expect(data.id).toEqual(idFetched);
+  test("3.1 - Listar produto por ID através de requisição válida", async () => {
+    const response = await productsClient.listProductsByIdValid({
+      id: idFetched,
     });
 
-    test("3.2 - Retornar erro de formato para parâmetro 'id' do tipo string não numérica", async () => {
-        const response = await productsClient.listProductsByIdInvalid({
-            id: "a",
-        });
+    expect(response.status).toEqual(200);
 
-        expect(response.status).toEqual(404);
+    const data = await response.json();
 
-        const data = await response.json();
+    await productSchema.validate(data);
 
-        await responseErrorSchema.validate(data);
+    expect(data.id).toEqual(idFetched);
+  });
 
-        expect(data.statusCode).toEqual(response.status);
-        expect(data.message.length >= 1).toBe(true);
+  test("3.2 - Retornar erro de formato para parâmetro 'id' do tipo string não numérica", async () => {
+    const response = await productsClient.listProductsByIdInvalid({
+      id: "a",
     });
 
-    test("3.3 - Retornar erro para parâmetro 'id' não cadastrado", async () => {
-        const response = await productsClient.listProductsByIdInvalid({
-            id: idNonExistent,
-        });
+    expect(response.status).toEqual(404);
 
-        expect(response.status).toEqual(404);
+    const data = await response.json();
 
-        const data = await response.json();
+    await responseErrorSchema.validate(data);
 
-        await responseErrorSchema.validate(data);
+    expect(data.statusCode).toEqual(response.status);
+    expect(data.message.length >= 1).toBe(true);
+  });
 
-        expect(data.statusCode).toEqual(response.status);
-        expect(data.message.length >= 1).toBe(true);
+  test("3.3 - Retornar erro para parâmetro 'id' não cadastrado", async () => {
+    const response = await productsClient.listProductsByIdInvalid({
+      id: idNonExistent,
     });
+
+    expect(response.status).toEqual(404);
+
+    const data = await response.json();
+
+    await responseErrorSchema.validate(data);
+
+    expect(data.statusCode).toEqual(response.status);
+    expect(data.message.length >= 1).toBe(true);
+  });
 });
