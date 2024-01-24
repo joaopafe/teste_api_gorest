@@ -1,15 +1,12 @@
 import fetch from "node-fetch";
 import { buildQuery } from "../../utils";
 import {
-  IListProductsInvalid,
-  IListProductsValid,
-  ICreateProductValid,
-  IDeleteProductValid,
-  IListProductsByIdValid,
-  IListProductsByIdInvalid,
-  IUpdateProductValid,
+  IListProducts,
+  ICreateProduct,
+  IDeleteProduct,
+  IListProductsById,
+  IUpdateProduct,
   IUpdateProductWithoutParams,
-  IUpdateProductInvalid,
 } from "./interfaces";
 import { config } from "../../config/index";
 
@@ -22,7 +19,7 @@ export class ProductsClient {
     this.baseUrl = baseUrl;
   }
 
-  public async listProducts(params: IListProductsValid) {
+  public async listProducts(params: IListProducts) {
     const query = buildQuery({
       limit: params.limit,
       offset: params.offset,
@@ -31,16 +28,7 @@ export class ProductsClient {
     return fetch(`${this.baseUrl}/api/v1/products?${query}`);
   }
 
-  public async listProductsInvalid(params: IListProductsInvalid) {
-    const query = buildQuery({
-      limit: params.limit,
-      offset: params.offset,
-    });
-
-    return fetch(`${this.baseUrl}/api/v1/products?${query}`);
-  }
-
-  public async createProduct(params: ICreateProductValid) {
+  public async createProduct(params: ICreateProduct) {
     const body = JSON.stringify({
       title: params.title,
       price: params.price,
@@ -58,7 +46,7 @@ export class ProductsClient {
     });
   }
 
-  public async deleteProduct(params: IDeleteProductValid) {
+  public async deleteProduct(params: IDeleteProduct) {
     const id = params.id;
 
     return fetch(`${this.baseUrl}/api/v1/products/${id}`, {
@@ -69,19 +57,13 @@ export class ProductsClient {
     });
   }
 
-  public async listProductsByIdValid(params: IListProductsByIdValid) {
+  public async listProductsById(params: IListProductsById) {
     const id = params.id;
 
-    return fetch(`${this.baseUrl}/api/v1/products/${id}`)
+    return fetch(`${this.baseUrl}/api/v1/products/${id}`);
   }
 
-  public async listProductsByIdInvalid(params: IListProductsByIdInvalid) {
-    const id = params.id;
-
-    return fetch(`${this.baseUrl}/api/v1/products/${id}`)
-  }
-
-  public async updateProductValid(params: IUpdateProductValid) {
+  public async updateProduct(params: IUpdateProduct) {
     const id = params.id;
 
     const body = JSON.stringify({
@@ -111,27 +93,7 @@ export class ProductsClient {
       body,
       headers: {
         "Content-Type": "application/json",
-      }
-    });
-  }
-
-  public async updateProductInvalid(params: IUpdateProductInvalid) {
-    const id = params.id;
-
-    const body = JSON.stringify({
-      title: params.title,
-      price: params.price,
-      description: params.description,
-      categoryId: params.categoryId,
-      images: params.images,
-    });
-
-    return fetch(`${this.baseUrl}/api/v1/products/${id}`, {
-      method: "PUT",
-      body,
-      headers: {
-        "Content-Type": "application/json",
-      }
+      },
     });
   }
 }

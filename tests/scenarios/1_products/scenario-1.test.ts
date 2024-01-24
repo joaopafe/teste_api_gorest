@@ -64,7 +64,7 @@ describe("Cenário 1 - Obtenção de produtos (GET /api/v1/products)", () => {
   test("1.4 - Retornar erro de formato para requisição com parâmetro 'limit' do tipo string", async () => {
     const limitInvalid = config.getProductsInvalid.limit;
 
-    const response = await productsClient.listProductsInvalid({
+    const response = await productsClient.listProducts({
       limit: limitInvalid,
       offset: offsetValid,
     });
@@ -82,7 +82,7 @@ describe("Cenário 1 - Obtenção de produtos (GET /api/v1/products)", () => {
   test("1.5 - Retornar erro de formato para requisição com parâmetro 'offset' do tipo string", async () => {
     const offsetInvalid = config.getProductsInvalid.offset;
 
-    const response = await productsClient.listProductsInvalid({
+    const response = await productsClient.listProducts({
       limit: limitValid,
       offset: offsetInvalid,
     });
@@ -100,7 +100,7 @@ describe("Cenário 1 - Obtenção de produtos (GET /api/v1/products)", () => {
     const limitInvalid = config.getProductsInvalid.limit;
     const offsetInvalid = config.getProductsInvalid.offset;
 
-    const response = await productsClient.listProductsInvalid({
+    const response = await productsClient.listProducts({
       limit: limitInvalid,
       offset: offsetInvalid,
     });

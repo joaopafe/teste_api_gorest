@@ -1,14 +1,9 @@
-export interface IListProductsValid {
-  limit?: number;
-  offset?: number;
+export interface IListProducts {
+  limit?: number | string;
+  offset?: number | string;
 }
 
-export interface IListProductsInvalid {
-  limit?: any;
-  offset?: any;
-}
-
-export interface ICreateProductValid {
+export interface ICreateProduct {
   title?: string;
   price?: any;
   description?: string;
@@ -16,19 +11,15 @@ export interface ICreateProductValid {
   images?: any;
 }
 
-export interface IDeleteProductValid {
-  id: number;
+export interface IDeleteProduct {
+  id: number | string;
 }
 
-export interface IListProductsByIdValid {
-  id: number;
+export interface IListProductsById {
+  id: number | any;
 }
 
-export interface IListProductsByIdInvalid {
-  id: any;
-}
-
-export interface IUpdateProductValid {
+export interface IUpdateProduct {
   id: number;
   title: string;
   price: number;
@@ -39,13 +30,4 @@ export interface IUpdateProductValid {
 
 export interface IUpdateProductWithoutParams {
   id: any;
-}
-
-export interface IUpdateProductInvalid {
-  id: any;
-  title: any;
-  price: any;
-  description: any;
-  categoryId: any;
-  images: any;
 }
