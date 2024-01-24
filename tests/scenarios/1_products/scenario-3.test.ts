@@ -2,9 +2,9 @@ import { ProductsClient } from "../../clients/products/productsClient";
 import { config } from "../../config";
 import { productSchema, responseErrorSchema } from "../../schemas";
 
-describe("Cenário 3 - Obtenção de produtos por ID (GET /api/v1/products/{id})", () => {
-  const productsClient = new ProductsClient();
+const productsClient = new ProductsClient();
 
+describe("Cenário 3 - Obtenção de produtos por ID (GET /api/v1/products/{id})", () => {
   let idFetched = 0;
   let idNonExistent = 0;
   const limitMax = 100000;
