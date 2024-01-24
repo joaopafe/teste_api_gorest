@@ -25,7 +25,7 @@ export interface IUpdateProduct {
   price: number;
   description: string;
   categoryId: number;
-  images: string[];
+  images: string[] | any[] | any;
 }
 
 export interface IUpdateProductWithoutParams {

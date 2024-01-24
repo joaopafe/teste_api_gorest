@@ -30,7 +30,7 @@ describe("Cenário 4 - Alteração de produtos (PUT /api/v1/products/{id})", () 
   });
 
   test("4.1 - Alterar produto cadastrado através de requisição válida", async () => {
-    const response = await productsClient.updateProductValid({
+    const response = await productsClient.updateProduct({
       id: idCreated,
       title: titleValid,
       price: priceValid,
@@ -72,7 +72,7 @@ describe("Cenário 4 - Alteração de produtos (PUT /api/v1/products/{id})", () 
   });
 
   test("4.3 - Retornar erro de formato para parâmetro 'title' vazio", async () => {
-    const response = await productsClient.updateProductInvalid({
+    const response = await productsClient.updateProduct({
       id: idCreated,
       title: "",
       price: priceValid,
@@ -91,7 +91,7 @@ describe("Cenário 4 - Alteração de produtos (PUT /api/v1/products/{id})", () 
   });
 
   test("4.4 - Retornar erro de formato para parâmetro 'price' com valor zero", async () => {
-    const response = await productsClient.updateProductInvalid({
+    const response = await productsClient.updateProduct({
       id: idCreated,
       title: titleValid,
       price: 0,
@@ -110,7 +110,7 @@ describe("Cenário 4 - Alteração de produtos (PUT /api/v1/products/{id})", () 
   });
 
   test("4.5 - Retornar erro de formato para parâmetro 'price' com valor negativo", async () => {
-    const response = await productsClient.updateProductInvalid({
+    const response = await productsClient.updateProduct({
       id: idCreated,
       title: titleValid,
       price: -10,
@@ -129,7 +129,7 @@ describe("Cenário 4 - Alteração de produtos (PUT /api/v1/products/{id})", () 
   });
 
   test("4.6 - Retornar erro de formato para parâmetro 'description' vazio", async () => {
-    const response = await productsClient.updateProductInvalid({
+    const response = await productsClient.updateProduct({
       id: idCreated,
       title: titleValid,
       price: priceValid,
@@ -148,7 +148,7 @@ describe("Cenário 4 - Alteração de produtos (PUT /api/v1/products/{id})", () 
   });
 
   test("4.7 - Retornar erro de formato para parâmetro 'images' vazio", async () => {
-    const response = await productsClient.updateProductInvalid({
+    const response = await productsClient.updateProduct({
       id: idCreated,
       title: titleValid,
       price: priceValid,
@@ -167,7 +167,7 @@ describe("Cenário 4 - Alteração de produtos (PUT /api/v1/products/{id})", () 
   });
 
   test("4.8 - Retornar erro de formato para parâmetro 'images' com padrão diferente de URL address", async () => {
-    const response = await productsClient.updateProductInvalid({
+    const response = await productsClient.updateProduct({
       id: idCreated,
       title: titleValid,
       price: priceValid,
@@ -186,7 +186,7 @@ describe("Cenário 4 - Alteração de produtos (PUT /api/v1/products/{id})", () 
   });
 
   test("4.9 - Retornar erro de formato para parâmetro 'images' que não seja um array", async () => {
-    const response = await productsClient.updateProductInvalid({
+    const response = await productsClient.updateProduct({
       id: idCreated,
       title: titleValid,
       price: priceValid,
