@@ -4,7 +4,7 @@ import { createProductSchema, responseErrorSchema } from "../../schemas";
 
 const productsClient = new ProductsClient();
 
-describe.skip("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
+describe("Cenário 2 - Criação de produtos (POST /api/v1/products)", () => {
   const titleValid = config.postProductsValid.title;
   const priceValid = config.postProductsValid.price;
   const descriptionValid = config.postProductsValid.description;
