@@ -5,7 +5,7 @@ const userSchema = yup.object({
   email: yup.string().email().required(),
   password: yup.string().required(),
   name: yup.string().required(),
-  role: yup.string().required(),
+  role: yup.string().oneOf(["admin", "customer"]).required(),
   avatar: yup.string().url().required(),
   creationAt: yup.date().required(),
   updatedAt: yup.date().required(),
