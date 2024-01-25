@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 import { buildQuery } from "../../utils";
-import { IListUsers } from "./interfaces";
+import { ICreateUser, IDeleteUser, IListUsers } from "./interfaces";
 import { config } from "../../config";
 
 const baseURL = config.basicConfiguration.baseURL;
@@ -19,6 +19,33 @@ export class UsersClient {
 
     return fetch(`${this.baseUrl}/api/v1/users?${query}`, {
       method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  public async createUser(params: ICreateUser) {
+    const body = JSON.stringify({
+      email: params.email,
+      name: params.name,
+      password: params.password,
+      role: params.role,
+      avatar: params.avatar,
+    });
+
+    return fetch(`${this.baseUrl}/api/v1/users`, {
+      method: "POST",
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  public deleteUser(params: IDeleteUser) {
+    return fetch(`${this.baseUrl}/api/v1/users/${params.id}`, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },

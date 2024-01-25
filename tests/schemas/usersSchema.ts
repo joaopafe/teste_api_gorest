@@ -1,6 +1,6 @@
 import * as yup from "yup";
 
-const userSchema = yup.object({
+export const userSchema = yup.object({
   id: yup.number().positive().required(),
   email: yup.string().email().required(),
   password: yup.string().required(),

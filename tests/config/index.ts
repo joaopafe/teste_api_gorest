@@ -5,6 +5,7 @@ import {
   postProductsValid,
   putProductsValid,
   getUsersValid,
+  postUsersValid,
 } from "./fakeStore";
 
 export const config = {
@@ -14,4 +15,5 @@ export const config = {
   postProductsValid,
   putProductsValid,
   getUsersValid,
+  postUsersValid,
 };

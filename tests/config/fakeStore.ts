@@ -31,3 +31,11 @@ export const putProductsValid = {
 export const getUsersValid = {
   limit: 1,
 };
+
+export const postUsersValid = {
+  email: "john.smith@mail.com",
+  name: "John Smith",
+  password: "john1234",
+  role: "customer",
+  avatar: "https://i.imgur.com/LDOO4Qs.jpg",
+};
