@@ -39,3 +39,11 @@ export const postUsersValid = {
   role: "customer",
   avatar: "https://i.imgur.com/LDOO4Qs.jpg",
 };
+
+export const putUsersValid = {
+  email: "john.smith10@mail.com",
+  name: "John Smith",
+  password: "john1234smith",
+  role: "customer",
+  avatar: "https://i.imgur.com/LDOO4Qs.jpg",
+};

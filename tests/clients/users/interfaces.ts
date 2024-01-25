@@ -17,3 +17,12 @@ export interface IDeleteUser {
 export interface IListUserById {
   id?: number | any;
 }
+
+export interface IUpdateUser {
+  id?: number | any;
+  email?: string | any;
+  name?: string | any;
+  password?: string | any;
+  role?: string | any;
+  avatar?: string | any;
+}

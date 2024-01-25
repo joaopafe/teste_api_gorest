@@ -5,6 +5,7 @@ import {
   IDeleteUser,
   IListUserById,
   IListUsers,
+  IUpdateUser,
 } from "./interfaces";
 import { config } from "../../config";
 
@@ -59,5 +60,23 @@ export class UsersClient {
 
   public async listUsersById(params: IListUserById) {
     return fetch(`${this.baseUrl}/api/v1/users/${params.id}`);
+  }
+
+  public async updateUser(params: IUpdateUser) {
+    const body = JSON.stringify({
+      email: params.email,
+      name: params.name,
+      password: params.password,
+      role: params.role,
+      avatar: params.avatar,
+    });
+
+    return fetch(`${this.baseUrl}/api/v1/users/${params.id}`, {
+      method: "PUT",
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   }
 }
