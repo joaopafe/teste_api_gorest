@@ -13,3 +13,7 @@ export interface ICreateUser {
 export interface IDeleteUser {
   id?: number | any;
 }
+
+export interface IListUserById {
+  id?: number | any;
+}

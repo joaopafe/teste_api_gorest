@@ -1,6 +1,11 @@
 import fetch from "node-fetch";
 import { buildQuery } from "../../utils";
-import { ICreateUser, IDeleteUser, IListUsers } from "./interfaces";
+import {
+  ICreateUser,
+  IDeleteUser,
+  IListUserById,
+  IListUsers,
+} from "./interfaces";
 import { config } from "../../config";
 
 const baseURL = config.basicConfiguration.baseURL;
@@ -50,5 +55,9 @@ export class UsersClient {
         "Content-Type": "application/json",
       },
     });
+  }
+
+  public async listUsersById(params: IListUserById) {
+    return fetch(`${this.baseUrl}/api/v1/users/${params.id}`);
   }
 }
