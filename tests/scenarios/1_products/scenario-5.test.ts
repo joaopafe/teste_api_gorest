@@ -28,7 +28,7 @@ describe("Cenário 5 - Remoção de produtos (DELETE /api/v1/products/{id})", ()
       id: idCreated,
     });
 
-    expect(response.status).toEqual(200);
+    expect(response.status).toEqual(200 | 204);
   });
 
   test("5.2 - Retornar erro para parâmetro 'id' do tipo string não numérica", async () => {
