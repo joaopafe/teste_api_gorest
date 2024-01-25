@@ -197,6 +197,6 @@ describe("Cenário 7 - Criação de usuários(POST /api/v1/users/{id})", () => {
       id: idCreated,
     });
 
-    expect(response.status).toEqual(200 | 204);
+    expect(response.status).toEqual(200);
   });
 });
