@@ -5,6 +5,7 @@ import {
   ICreateCategorie,
   IListCategorieById,
   IListCategories,
+  IUpdateCategorie,
 } from "./interfaces";
 
 const baseURL = config.basicConfiguration.baseURL;
@@ -41,5 +42,20 @@ export class CategoriesClient {
 
   public async listCategorieById(params: IListCategorieById) {
     return fetch(`${this.baseUrl}/api/v1/categories/${params.id}`);
+  }
+
+  public async updateCategorie(params: IUpdateCategorie) {
+    const body = JSON.stringify({
+      name: params.name,
+      image: params.image,
+    });
+
+    return fetch(`${this.baseUrl}/api/v1/categories/${params.id}`, {
+      method: "PUT",
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   }
 }

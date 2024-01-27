@@ -56,3 +56,8 @@ export const postCategorieValid = {
   name: "Games",
   image: "https://www.designi.com.br/images/preview/10024010.jpg",
 };
+
+export const putCategoriesValid = {
+  name: "Video-Games",
+  image: postCategorieValid.image,
+};
