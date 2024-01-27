@@ -51,3 +51,8 @@ export const putUsersValid = {
 export const getCategoriesValid = {
   limit: 1,
 };
+
+export const postCategorieValid = {
+  name: "Games",
+  image: "https://www.designi.com.br/images/preview/10024010.jpg",
+};

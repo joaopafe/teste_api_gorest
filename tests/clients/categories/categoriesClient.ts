@@ -1,7 +1,7 @@
 import fetch from "node-fetch";
 import { buildQuery } from "../../utils";
 import { config } from "../../config/index";
-import { IListCategories } from "./interfaces";
+import { ICreateCategorie, IListCategories } from "./interfaces";
 
 const baseURL = config.basicConfiguration.baseURL;
 
@@ -18,5 +18,20 @@ export class CategoriesClient {
     });
 
     return fetch(`${this.baseUrl}/api/v1/categories?${query}`);
+  }
+
+  public async createCategorie(params: ICreateCategorie) {
+    const body = JSON.stringify({
+      name: params.name,
+      image: params.image,
+    });
+
+    return fetch(`${this.baseUrl}/api/v1/categories`, {
+      method: "POST",
+      body,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
   }
 }
