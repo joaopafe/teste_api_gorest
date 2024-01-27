@@ -47,3 +47,7 @@ export const putUsersValid = {
   role: "customer",
   avatar: "https://i.imgur.com/LDOO4Qs.jpg",
 };
+
+export const getCategoriesValid = {
+  limit: 1,
+};
