@@ -3,6 +3,7 @@ import { buildQuery } from "../../utils";
 import { config } from "../../config/index";
 import {
   ICreateCategorie,
+  IDeleteCategorie,
   IListCategorieById,
   IListCategories,
   IUpdateCategorie,
@@ -53,6 +54,15 @@ export class CategoriesClient {
     return fetch(`${this.baseUrl}/api/v1/categories/${params.id}`, {
       method: "PUT",
       body,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  public async deleteCategorie(params: IDeleteCategorie) {
+    return fetch(`${this.baseUrl}/api/v1/categories/${params.id}`, {
+      method: "DELETE",
       headers: {
         "Content-Type": "application/json",
       },

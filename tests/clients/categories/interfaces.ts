@@ -16,3 +16,7 @@ export interface IUpdateCategorie {
   name?: string | any;
   image?: string | any;
 }
+
+export interface IDeleteCategorie {
+  id: number | any;
+}
