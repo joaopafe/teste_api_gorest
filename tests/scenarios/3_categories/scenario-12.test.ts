@@ -9,6 +9,8 @@ describe("Cenário 12 - Criação de categorias (POST /api/v1/categories)", () =
   const nameValid = config.postCategorieValid.name;
   const imageValid = config.postCategorieValid.image;
 
+  let idCreated = 0;
+
   test("12.1 - Cadastrar categoria através de requisição válida", async () => {
     const response = await categoriesClient.createCategorie({
       name: nameValid,
@@ -22,6 +24,8 @@ describe("Cenário 12 - Criação de categorias (POST /api/v1/categories)", () =
 
     expect(data.name).toBe(nameValid);
     expect(data.image).toBe(imageValid);
+
+    idCreated = data.id;
   });
 
   test("12.2 - Retornar erro de formato para falta de parâmetros obrigatórios", async () => {
@@ -75,5 +79,9 @@ describe("Cenário 12 - Criação de categorias (POST /api/v1/categories)", () =
     responseErrorSchema.validate(data);
 
     expect(data.message.length >= 1).toBe(true);
+  });
+
+  afterAll(async () => {
+    await categoriesClient.deleteCategorie({ id: idCreated });
   });
 });
