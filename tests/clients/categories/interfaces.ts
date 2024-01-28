@@ -20,3 +20,9 @@ export interface IUpdateCategorie {
 export interface IDeleteCategorie {
   id: number | any;
 }
+
+export interface IListProductsById {
+  id: number;
+  limit: number | any;
+  offset: number | any;
+}

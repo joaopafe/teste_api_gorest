@@ -6,6 +6,7 @@ import {
   IDeleteCategorie,
   IListCategorieById,
   IListCategories,
+  IListProductsById,
   IUpdateCategorie,
 } from "./interfaces";
 
@@ -67,5 +68,16 @@ export class CategoriesClient {
         "Content-Type": "application/json",
       },
     });
+  }
+
+  public async listProductsById(params: IListProductsById) {
+    const query = buildQuery({
+      limit: params.limit,
+      offset: params.offset,
+    });
+
+    return fetch(
+      `${this.baseUrl}/api/v1/categories/${params.id}/products?${query}`
+    );
   }
 }

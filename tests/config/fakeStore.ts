@@ -61,3 +61,9 @@ export const putCategoriesValid = {
   name: "Video-Games",
   image: postCategorieValid.image,
 };
+
+export const getProductsById = {
+  id: 1,
+  limit: 0,
+  offset: 1,
+};

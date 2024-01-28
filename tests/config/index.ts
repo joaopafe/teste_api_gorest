@@ -10,6 +10,7 @@ import {
   getCategoriesValid,
   postCategorieValid,
   putCategoriesValid,
+  getProductsById,
 } from "./fakeStore";
 
 export const config = {
@@ -24,4 +25,5 @@ export const config = {
   getCategoriesValid,
   postCategorieValid,
   putCategoriesValid,
+  getProductsById,
 };
