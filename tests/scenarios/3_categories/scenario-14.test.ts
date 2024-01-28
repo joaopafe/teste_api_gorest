@@ -1,14 +1,13 @@
 import { CategoriesClient } from "../../clients/categories/categoriesClient";
 import { config } from "../../config";
-import { putCategoriesValid } from "../../config/fakeStore";
 import { responseErrorSchema } from "../../schemas";
 import { categorieSchema } from "../../schemas/categoriesSchema";
 
 const categoriesClient = new CategoriesClient();
 
 describe("Cenário 14 - Alteração de categorias (PUT /api/v1/categories/{id})", () => {
-  const nameValid = putCategoriesValid.name;
-  const imageValid = putCategoriesValid.image;
+  const nameValid = config.putCategoriesValid.name;
+  const imageValid = config.putCategoriesValid.image;
 
   let idUpdated = 0;
 

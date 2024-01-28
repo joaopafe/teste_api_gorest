@@ -9,6 +9,7 @@ import {
   putUsersValid,
   getCategoriesValid,
   postCategorieValid,
+  putCategoriesValid,
 } from "./fakeStore";
 
 export const config = {
@@ -22,4 +23,5 @@ export const config = {
   putUsersValid,
   getCategoriesValid,
   postCategorieValid,
+  putCategoriesValid,
 };
