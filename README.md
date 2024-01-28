@@ -1,4 +1,4 @@
-# [EM CONSTRUÇÃO] Platzi Fake Store Quality Assurance - API de testes
+# Platzi Fake Store Quality Assurance - API de testes
 
 ## Descrição
 
